@@ -13,8 +13,6 @@ const printerUSB = new escpos.Printer(deviceUSB, options);
 var Thermal = function () {};
 
 Thermal.printUSB = function printUSB(code, clientCode, details) {
-    let str1 = Utils.cleanAccents('Phở Ly');
-    let str2 = Utils.cleanAccents('276/17 thống nhất, p7, Gò Vấp');
     deviceUSB.open(function() {
         let str1 = Utils.cleanAccents('Phở Ly');
         let str2 = Utils.cleanAccents('276/17 thống nhất, p7, Gò Vấp');
