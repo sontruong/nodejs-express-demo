@@ -1,11 +1,9 @@
 const express = require('express') 
 const path = require('path')
-var pug = require('pug');
+var projectRouter = require('./routes/project');
 
 // var thermalPrinter = require('./common/thermal.printer.service').Thermal;
 const publicDirectoryPath = path.join(__dirname, 'public')
-console.log('-----: ' + publicDirectoryPath);
-
 
 const app = express()
 app.set('view engine', 'pug');
@@ -34,6 +32,12 @@ app.get("/peoples", (req, res, next) => {
 app.get("/pug", (req, res, next) => {
     res.render('demo', { pageTitle: 'Demo', youAreUsingPug: true, message: 'Hello there!' });
 });
+
+app.get("/peoples", (req, res, next) => {
+    res.json(["Son","Tu","Thinh","Thanh"]);
+});
+
+app.use('/projects', projectRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res) {
